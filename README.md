@@ -1,11 +1,11 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+#Home
 <img src="docs/home.png" alt="Home">
+#Detail
 <img src="docs/detail.png" alt="Detail">
+#Contact
 <img src="docs/contact.png" alt="Contact">
+#Product pagina
 <img src="docs/prodpage.png" alt="Product pagina">
-
-
-
 <p align="center">
 
 
