@@ -7,8 +7,8 @@
 
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ route("home") }}">@lang("pages.home") <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route("home") }}">@lang("pages.home")</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">@lang("pages.search")</a>
@@ -27,7 +27,7 @@
                 <a class="nav-link" href="#">@lang("pages.login")</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">@lang("pages.register")</a>
+                <a class="nav-link" href="{{ route("register") }}">@lang("pages.register")</a>
             </li>
         </ul>
     </div>
