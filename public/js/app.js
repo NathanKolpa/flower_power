@@ -19384,13 +19384,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! D:\School mapjes\Examentraining\git\flower_power\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\School mapjes\Examentraining\git\flower_power\resources\scss\app.scss */"./resources/scss/app.scss");
-=======
-__webpack_require__(/*! /run/media/core/Data/repos/PHP/flower_power/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /run/media/core/Data/repos/PHP/flower_power/resources/scss/app.scss */"./resources/scss/app.scss");
->>>>>>> 8311b5335b0ce4f67cfadf1aae8df00f7789c7a7
 
 
 /***/ })
