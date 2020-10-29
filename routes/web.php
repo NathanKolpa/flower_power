@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SignUpController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,5 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, "index"])->name("home");
 
-Route::get('/register', function () {
-    return view('pages.register');
-})->name("register");
+Route::get('/register', [SignUpController::class, "index"])->name("register");
+Route::post('/register/create', [SignUpController::class, "register"])->name("register.create");
