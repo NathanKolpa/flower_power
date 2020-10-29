@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -51,15 +52,17 @@ class SignUpController extends Controller
         $validatedBody = $validator->validated();
 
         $newUser = new User();
-        $newUser->first_name = $validatedBody['first_name'];
+        $newUser->first_name = ucfirst($validatedBody['first_name']);
         $newUser->middle_name = $validatedBody['middle_name'];
-        $newUser->last_name = $validatedBody['last_name'];
+        $newUser->last_name = ucfirst($validatedBody['last_name']);
         $newUser->email = $validatedBody['email'];
         $newUser->password = Hash::make($validatedBody['password']);
 
         if (!$newUser->save()) {
             dd(":(");
         }
+
+        Auth::login($newUser);
 
         return redirect()->route("home");
     }

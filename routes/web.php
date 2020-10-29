@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SignOutController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -22,6 +23,8 @@ use App\Http\Controllers\ProductController;
 
 
 Route::get('/', [HomeController::class, "index"])->name("home");
+
+Route::get('/sign-out', [SignOutController::class, "index"])->name("sign-out");
 
 Route::get('/login', [SignInController::class, "index"])->name("login");
 Route::post("/login", [SignInController::class, "login"])->name("loginRequest");
