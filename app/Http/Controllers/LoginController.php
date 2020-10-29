@@ -8,18 +8,17 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    public function getSingleUser(Request $request)
+    public function login(Request $request)
     {
 
         $validatedData = $request->validate([
             'email' => 'required|max:64|email',
             'password' => 'required|min:8',
         ]);
-
-        $password = $validatedData["password"];
 
         if(Auth::attempt($validatedData))
         {
