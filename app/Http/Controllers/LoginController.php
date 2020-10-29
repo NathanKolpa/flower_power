@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
+    public function index()
+    {
+        return view("pages.login");
+    }
+
     public function login(Request $request)
     {
 
@@ -26,9 +31,7 @@ class LoginController extends Controller
         }
         else
         {
-            return "bok";
+            return "Account niet gevonden";
         }
-        //$db = DB::table('users')->where('email', "=", $email);
-
     }
 }
