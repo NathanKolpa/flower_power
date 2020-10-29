@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -18,7 +20,13 @@ use App\Http\Controllers\SignUpController;
 */
 
 
+
 Route::get('/', [HomeController::class, "index"])->name("home");
+
+Route::get('/login', [LoginController::class, "index"])->name("login");
+Route::post("/login", [LoginController::class, "login"])->name("loginRequest");
+
+Route::get('/products', [ProductController::class, "getAllProducts"])->name("products");
 
 Route::get('/register', [SignUpController::class, "index"])->name("register");
 Route::post('/register/create', [SignUpController::class, "register"])->name("register.create");

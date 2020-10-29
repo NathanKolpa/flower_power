@@ -11,7 +11,7 @@
                 <a class="nav-link" href="{{ route("home") }}">@lang("pages.home")</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">@lang("pages.search")</a>
+                <a class="nav-link" href="{{ route("products") }}">@lang("pages.search")</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">@lang("pages.contact")</a>
@@ -24,7 +24,7 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">@lang("pages.login")</a>
+                <a class="nav-link" href="{{ route("login") }}">@lang("pages.login")</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route("register") }}">@lang("pages.register")</a>
