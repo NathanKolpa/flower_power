@@ -2,6 +2,7 @@
 @section("page-title", __("pages.register"))
 
 @section("content")
+
     <div class="row">
         <div class="col-8 mx-auto">
             <form method="POST" action="{{ route("register.create")  }}">
@@ -9,29 +10,27 @@
 
                 <div class="form-row">
                     <div class="form-group col-lg-4">
-                        <label>@lang("general.first_name")*</label>
-                        <input name="first_name" type="text" class="form-control" required>
+                        <x-form-field :title="__('general.first_name')"
+                                      required="true" name="first_name" type="text" value="$firstName"></x-form-field>
                     </div>
                     <div class="form-group col-lg-3">
-                        <label>@lang("general.middle_name")</label>
-                        <input name="middle_name" type="text" class="form-control">
+                        <x-form-field :title="__('general.middle_name')"
+                                      required="false" name="middle_name" type="text"></x-form-field>
                     </div>
                     <div class="form-group col-lg-5">
-                        <label>@lang("general.last_name")*</label>
-                        <input name="last_name" type="text" class="form-control" required>
+                        <x-form-field :title="__('general.last_name')"
+                                      required="true" name="last_name" type="text"></x-form-field>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label>@lang("general.email")*</label>
-                        <input name="email" type="email" class="form-control" required>
-                        <small class="form-text text-muted">@lang("text.email_disclaimer")</small>
+                        <x-form-field :title="__('general.email')" :description=" __('text.email_disclaimer')"
+                                      required="true" name="email" type="email"></x-form-field>
                     </div>
                     <div class="form-group col-md-6">
-                        <label>@lang("general.password")*</label>
-                        <input name="password" type="password" class="form-control" required>
-                        <small class="form-text text-muted">@lang("text.password_requirements")</small>
+                        <x-form-field :title="__('general.password')" :description=" __('text.password_requirements')"
+                                      required="true" name="password" type="password"></x-form-field>
                     </div>
                 </div>
 
