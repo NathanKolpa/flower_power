@@ -53,7 +53,7 @@ class SignUpController extends Controller
 
         $newUser = new User();
         $newUser->first_name = ucfirst($validatedBody['first_name']);
-        $newUser->middle_name = $validatedBody['middle_name'];
+        $newUser->middle_name = $validatedBody['middle_name'] != '' ? $validatedBody['middle_name'] : null;
         $newUser->last_name = ucfirst($validatedBody['last_name']);
         $newUser->email = $validatedBody['email'];
         $newUser->password = Hash::make($validatedBody['password']);
