@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,17 @@ use App\Http\Controllers\HomeController;
 */
 
 
+
 Route::get('/', [HomeController::class, "index"])->name("home");
 
 Route::get('/register', function () {
     return view('pages.register');
 })->name("register");
+
+Route::get('/login', function () {return view('pages.login');})->name("login");
+Route::post("/login", [LoginController::class, "getSingleUser"])->name("loginRequest");
+
+
+Route::get('/products', function () {
+    return view('pages.products');
+})->name("products");

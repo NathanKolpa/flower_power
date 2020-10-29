@@ -8,5 +8,6 @@ return [
     "password" => "Wachtwoord",
     "email" => "Email",
 
-    "sign_up" => "Meld aan"
+    "sign_up" => "Meld aan",
+    "sign_in" => "Inloggen"
 ];
