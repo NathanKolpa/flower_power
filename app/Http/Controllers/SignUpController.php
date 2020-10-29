@@ -45,8 +45,7 @@ class SignUpController extends Controller
 
             return redirect()
                 ->route("register")
-                ->withErrors($validator->getMessageBag()->get('*'))
-                ->with($validator->validated());
+                ->withErrors($validator->getMessageBag()->get('*'));
         }
 
         $validatedBody = $validator->validated();

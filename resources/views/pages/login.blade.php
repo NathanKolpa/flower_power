@@ -8,12 +8,12 @@
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label>@lang("general.email")</label>
-                        <input type="email" class="form-control" name="email" required>
+                        <x-form-field :title="__('general.email')"
+                                      required="true" name="email" type="email"></x-form-field>
                     </div>
                     <div class="form-group col-md-6">
-                        <label>@lang("general.password")</label>
-                        <input type="password" class="form-control" name="password" required>
+                        <x-form-field :title="__('general.password')"
+                                      required="true" name="password" type="password"></x-form-field>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">@lang("general.sign_in")</button>
