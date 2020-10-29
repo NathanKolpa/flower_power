@@ -6,4 +6,5 @@ return [
     "contact" => "Contact",
     "login" => "Inloggen",
     "register" => "Aanmelden",
+    "logout" => "Uitloggen"
 ];

@@ -23,12 +23,21 @@
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route("login") }}">@lang("pages.login")</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route("register") }}">@lang("pages.register")</a>
-            </li>
+            @if(Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link">{{ Auth::user()->first_name  }} {{ Auth::user()->middle_name }} {{ Auth::user()->last_name }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">@lang('pages.logout')</a>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route("login") }}">@lang("pages.login")</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route("register") }}">@lang("pages.register")</a>
+                </li>
+            @endif
         </ul>
     </div>
 </nav>
