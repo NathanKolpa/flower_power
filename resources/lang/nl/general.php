@@ -9,5 +9,7 @@ return [
     "email" => "Email",
 
     "sign_up" => "Meld aan",
-    "sign_in" => "Inloggen"
+    "sign_in" => "Inloggen",
+
+    "change" => "Bewerken"
 ];

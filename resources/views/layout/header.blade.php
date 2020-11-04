@@ -25,7 +25,7 @@
         <ul class="navbar-nav ml-auto">
             @if(Auth::check())
                 <li class="nav-item">
-                    <a class="nav-link">{{ Auth::user()->first_name  }}</a>
+                    <a class="nav-link" href="{{ route('account') }}">{{ Auth::user()->first_name  }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('sign-out') }}">@lang('pages.logout')</a>
