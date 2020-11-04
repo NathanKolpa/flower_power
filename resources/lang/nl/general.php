@@ -19,5 +19,6 @@ return [
     "description" => "Beschrijving",
     "price" => "Prijs",
     "quantity" => "Aantal",
-    "on_sale" => "In de uitverkoop"
+    "on_sale" => "In de uitverkoop",
+    "change" => "Bewerken"
 ];

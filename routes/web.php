@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SignInController;
 use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 
 use App\Models\Product;
@@ -41,3 +43,8 @@ Route::get("/admin/products", [AdminProductsController::class, "index"])->name("
 Route::get("/admin/products/edit/{id}", [AdminProductsController::class, "editIndex"])->name("admin.products.edit");
 Route::post("/products/{id}", [AdminProductsController::class, "editAction"])->name("admin.products.edit.update");
 Route::delete("/products/{id}", [AdminProductsController::class, "deleteAction"])->name("admin.products.edit.delete");
+
+Route::get("/account", [SettingsController::class, "index"])->name("account");
+Route::post("/account/update", [SettingsController::class, "update"])->name("account.update");
+
+Route::get("/account/orders", [OrderController::class, "getAllOrders"])->name("account/orders");
