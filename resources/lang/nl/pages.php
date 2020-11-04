@@ -6,5 +6,8 @@ return [
     "contact" => "Contact",
     "login" => "Inloggen",
     "register" => "Aanmelden",
-    "logout" => "Uitloggen"
+    "logout" => "Uitloggen",
+
+    "admin" => "Beheer",
+    "admin_products" => "Producten beheeren",
 ];

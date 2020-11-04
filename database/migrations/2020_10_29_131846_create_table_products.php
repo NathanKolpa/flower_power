@@ -21,6 +21,7 @@ class CreateTableProducts extends Migration
             $table->integer('price');
             $table->integer('quantity');
             $table->boolean('on_sale');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

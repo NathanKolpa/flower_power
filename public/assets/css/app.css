@@ -10899,3 +10899,11 @@ a.text-dark:focus {
   }
 }
 
+.btn-no-outline,
+.btn-no-outline:active,
+.btn-no-outline:focus,
+.btn-no-outline:active:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+

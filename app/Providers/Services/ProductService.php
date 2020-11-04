@@ -4,20 +4,20 @@
 namespace App\Providers\Services;
 
 
-use App\Models\Products;
+use App\Models\Product;
 
 class ProductService
 {
     public function getAll()
     {
-        $products = Products::all();
+        $products = Product::all();
 
         return $products;
     }
 
     public function getSale()
     {
-        $products = Products::all()->where("onSale", "=", true);;
+        $products = Product::all()->where("onSale", "=", true);;
 
         return $products;
     }

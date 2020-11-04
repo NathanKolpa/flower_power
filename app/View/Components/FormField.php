@@ -18,12 +18,13 @@ class FormField extends Component
      *
      * @return void
      */
-    public function __construct($name, $required, $type, $title)
+    public function __construct($name, $required, $type, $title, $value = "")
     {
         $this->name = $name;
         $this->required = $required == 'true';
         $this->title = $title;
         $this->type = $type;
+        $this->value = $value;
     }
 
     /**

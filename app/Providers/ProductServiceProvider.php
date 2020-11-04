@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Controllers\ProductController;
-use App\Models\Products;
+use App\Models\Product;
 use App\Providers\Services\ProductService;
 use Illuminate\Support\ServiceProvider;
 
