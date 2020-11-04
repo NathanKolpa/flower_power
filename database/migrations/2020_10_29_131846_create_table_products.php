@@ -20,7 +20,7 @@ class CreateTableProducts extends Migration
             $table->string('picture', 64);
             $table->integer('price');
             $table->integer('quantity');
-            $table->boolean('onSale');
+            $table->boolean('on_sale');
             $table->timestamps();
         });
     }
