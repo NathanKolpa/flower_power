@@ -47,9 +47,19 @@ class User extends Authenticatable
         'is_admin' => 'boolean',
     ];
 
-    public function products()
+    public function shoppingCartProducts()
     {
         return $this->belongsToMany('App\Models\Product', 'shopping_cart_products', 'user_id', "product_id")
             ->withPivot("product_count");
+    }
+
+    public function getShoppingCartTotalAttribute() {
+        $totalPrice = 0;
+
+        foreach ($this->shoppingCartProducts as $product) {
+            $totalPrice += $product->price * $product->pivot->product_count;
+        }
+
+        return $totalPrice;
     }
 }

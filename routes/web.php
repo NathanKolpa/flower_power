@@ -58,3 +58,4 @@ Route::get("/admin/orders", [OrderController::class, "getAllOrders"])->name("adm
 Route::delete("/orders/{id}", [OrderController::class, "deleteOrder"])->name("account.orders.delete");
 
 Route::get("/shopping-cart", [ShoppingCartController::class, 'index'])->name("shopping-cart");
+Route::delete("/users/{userId}/shopping-cart/{productId}", [ShoppingCartController::class, 'deleteItemAction'])->name("shopping-cart.delete");

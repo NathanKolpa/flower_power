@@ -22,6 +22,7 @@ return [
     "on_sale" => "In de uitverkoop",
     "change" => "Bewerken",
     "create" => "Aanmaken",
+    "delete" => "Verwijder",
 
     "user_id" => "Klant nummer",
     "paid_price" => "Prijs betaald",

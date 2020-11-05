@@ -34,4 +34,9 @@ class Product extends Model
     {
         $this->attributes["price"] = $value * 100;
     }
+
+    public function getPivotTotalAttribute()
+    {
+        return $this->pivot->product_count * $this->price;
+    }
 }
