@@ -41,8 +41,11 @@ Route::post('/register/create', [SignUpController::class, "register"])->name("re
 
 Route::get("/admin/products", [AdminProductsController::class, "index"])->name("admin.products");
 Route::get("/admin/products/edit/{id}", [AdminProductsController::class, "editIndex"])->name("admin.products.edit");
-Route::post("/products/{id}", [AdminProductsController::class, "editAction"])->name("admin.products.edit.update");
+Route::get("/admin/products/create", [AdminProductsController::class, "createIndex"])->name("admin.products.create");
+
+Route::put("/products/{id}", [AdminProductsController::class, "editAction"])->name("admin.products.edit.update");
 Route::delete("/products/{id}", [AdminProductsController::class, "deleteAction"])->name("admin.products.edit.delete");
+Route::post("/products", [AdminProductsController::class, "createAction"])->name("admin.products.edit.create");
 
 Route::get("/account", [SettingsController::class, "index"])->name("account");
 Route::post("/account/update", [SettingsController::class, "update"])->name("account.update");
