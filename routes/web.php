@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminProductsController;
+use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\SignOutController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,3 +52,5 @@ Route::get("/account", [SettingsController::class, "index"])->name("account");
 Route::post("/account/update", [SettingsController::class, "update"])->name("account.update");
 
 Route::get("/account/orders", [OrderController::class, "getAllOrders"])->name("account/orders");
+
+Route::get("/shopping-cart", [ShoppingCartController::class, 'index'])->name("shopping-cart");
