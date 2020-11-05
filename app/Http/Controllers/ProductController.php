@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Products;
+use App\Models\Product;
 use App\Providers\ProductServiceProvider;
 use App\Providers\Services\ProductService;
 

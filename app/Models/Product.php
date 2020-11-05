@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Products extends Model
+class Product extends Model
 {
 
     use HasFactory;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -20,6 +22,7 @@ class Products extends Model
         'description',
         'price',
         'quantity',
+
     ];
 
     public function getPriceAttribute($value)
@@ -31,6 +34,4 @@ class Products extends Model
     {
         $this->attributes["price"] = $value * 100;
     }
-
-
 }

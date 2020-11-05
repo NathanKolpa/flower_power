@@ -16,13 +16,32 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">@lang("pages.contact")</a>
             </li>
+
+
         </ul>
-    </div>
-    <div class="mx-auto order-0">
-        {{--            search bar??--}}
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
+
+            @if(Auth::check() && Auth::user()->is_admin)
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn nav-link dropdown-toggle btn-no-outline" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                            @lang("pages.admin")
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                            @canany(['create', 'updateAny', 'deleteAny'], \App\Models\Product::class)
+                                <a class="dropdown-item"
+                                   href="{{ route("admin.products")  }}">@lang("pages.admin_products")</a>
+                            @endcanany
+                        </div>
+                    </div>
+                </li>
+            @endif
+
             @if(Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('account') }}">{{ Auth::user()->first_name  }}</a>
