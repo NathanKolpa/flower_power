@@ -22,10 +22,9 @@
                             @endforeach
                         </table>
                     </div>
-                    <div class="col-md-3">Totaal prijs: {{$order->price_paid}}</div>
-                    <div class="col-md-3"><a style="color: blue">Annuleren</a></div>
+                    <div class="col-md-3">Totaal prijs: {{$order->price_paid/100}}</div>
+                    <div class="col-md-3"><form method="post" action="/account/orders/delete/{{$order->id}}"><input type="hidden" name="_method" value="delete"><input type="submit" value="bestelling annuleren"></form></div>
                 </div>
             @endforeach
         </div>
-
 @endsection

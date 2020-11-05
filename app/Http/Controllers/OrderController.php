@@ -17,5 +17,9 @@ class OrderController
         return view("pages.orders", ["orders" => $orders]);
     }
 
-
+    public function deleteOrder($id)
+    {
+        $order = new Order();
+        $order->delete();
+    }
 }
