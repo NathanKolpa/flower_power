@@ -46,4 +46,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'is_admin' => 'boolean',
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product', 'shopping_cart_products', 'user_id', "product_id")
+            ->withPivot("product_count");
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany('App\Models\Address');
+    }
 }

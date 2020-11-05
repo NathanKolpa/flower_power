@@ -29,6 +29,9 @@ return [
     "created_at"=> "Aangemaakt op",
     "products"=> "Producten",
     "user_data"=> "Klant gegevens",
+    "approve"=> "Versturen",
+
+    "addToCard" => "Toevoegen aan winkelwagen"
 
 
 ];

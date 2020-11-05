@@ -46,6 +46,9 @@
 
             @if(Auth::check())
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route("shopping-cart") }}">@lang("pages.shopping_cart")</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('account') }}">{{ Auth::user()->first_name  }}</a>
                 </li>
                 <li class="nav-item">

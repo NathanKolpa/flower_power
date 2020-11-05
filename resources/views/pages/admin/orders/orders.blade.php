@@ -14,6 +14,7 @@
                     <th scope="col">@lang("general.products")</th>
                     <th scope="col">@lang("general.is_delivered")</th>
                     <th scope="col">@lang("general.created_at")</th>
+                    <th scope="col">@lang("general.approve")</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -22,13 +23,16 @@
                         <th scope="row">{{ $order->id }}</th>
                         <td>{{ $order->user_id }}</td>
                         <td>
-                            {{$order->user->first_name}}
+                            <p>{{$order->user->first_name}} {{$order->user->middle_name}} {{$order->user->last_name}}</p>
+                            <p>{{$order->address->street_name}} {{$order->address->house_number}} </p>
+                            <p>{{$order->address->postal_code}}</p>
                         </td>
                         <td>€ {{ $order->price_paid/100 }}</td>
                         <td>
                             <table>
                                 @foreach($order->products as $product)
                                     <tr>
+                                        <td style="border: none">{{$product->pivot->product_count}}x</td>
                                         <td style="border: none">{{$product->name}}</td>
                                     </tr>
                                 @endforeach
@@ -36,6 +40,14 @@
                         </td>
                         <td>{{ $order->is_delivered ? 'true' : 'false' }}</td>
                         <td>{{ $order->created_at }}</td>
+                        <td>
+                            @if($order->is_delivered)
+                                <p>Verstuurd!</p>
+                            @else
+                                <a class="btn btn-primary" href="{{ route("admin.order.approve", [$order->id]) }}">@lang("general.approve")</a>
+                            @endif
+
+                        </td>
 
                     </tr>
                 @endforeach

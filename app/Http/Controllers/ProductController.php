@@ -17,4 +17,11 @@ class ProductController
 
         return view('pages.products', ['products' => $products]);
     }
+
+    public function getProductById($id)
+    {
+        $product = Product::find($id);
+
+        return view('pages.detail', ['product' => $product]);
+    }
 }

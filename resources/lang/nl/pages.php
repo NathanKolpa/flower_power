@@ -7,6 +7,7 @@ return [
     "login" => "Inloggen",
     "register" => "Aanmelden",
     "logout" => "Uitloggen",
+    "shopping_cart" => "Winkelwagen",
 
     "admin" => "Beheer",
     "admin_products" => "Producten beheeren",
