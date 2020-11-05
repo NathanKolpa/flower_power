@@ -6,7 +6,7 @@
         <div class="col-md-2">
             <nav class="nav flex-column">
                 <a class="nav-link" style="border-bottom: 1px solid lightgray" href="{{ route("account") }}">Profile</a>
-                <a class="nav-link" style="border-bottom: 1px solid lightgray" href="{{ route("account/orders") }}">Bestellingen</a>
+                <a class="nav-link" style="border-bottom: 1px solid lightgray" href="{{ route("account.orders") }}">Bestellingen</a>
             </nav>
         </div>
         <div class="col-md-10">
@@ -22,10 +22,15 @@
                             @endforeach
                         </table>
                     </div>
-                    <div class="col-md-3">Totaal prijs: {{$order->price_paid}}</div>
-                    <div class="col-md-3"><a style="color: blue">Annuleren</a></div>
+                    <div class="col-md-3">Totaal prijs: {{$order->price_paid/100}}</div>
+                    <div class="col-md-3">
+                        <form method="post" action="{{ route("account.orders.delete", [$order->id]) }}">
+                            @csrf
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="submit" value="bestelling annuleren">
+                        </form>
+                    </div>
                 </div>
             @endforeach
         </div>
-
 @endsection

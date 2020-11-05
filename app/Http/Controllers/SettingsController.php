@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class SettingsController
+class SettingsController extends Controller
 {
     public function index()
     {
@@ -46,11 +46,12 @@ class SettingsController
         }
 
         $validatedBody = $validator->validated();
-
         $user = Auth::user();
         $user->first_name = ucfirst($validatedBody['first_name']);
         $user->middle_name = $validatedBody['middle_name'] != '' ? $validatedBody['middle_name'] : null;
         $user->last_name = ucfirst($validatedBody['last_name']);
+
+
         if (!$user->save()) {
             dd(":(");
         }

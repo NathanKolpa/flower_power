@@ -37,6 +37,8 @@
                                 <a class="dropdown-item"
                                    href="{{ route("admin.products")  }}">@lang("pages.admin_products")</a>
                             @endcanany
+                                    <a class="dropdown-item"
+                                       href="{{ route("admin.orders")  }}">@lang("pages.admin_orders")</a>
                         </div>
                     </div>
                 </li>

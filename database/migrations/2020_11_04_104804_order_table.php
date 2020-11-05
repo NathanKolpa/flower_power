@@ -18,6 +18,7 @@ class OrderTable extends Migration
             $table->foreignId("user_id")->constrained();
             $table->integer("price_paid");
             $table->boolean("is_delivered");
+            $table->softDeletes();
             $table->timestamps();
         });
 

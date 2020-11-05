@@ -53,4 +53,8 @@ Route::post("/account/update", [SettingsController::class, "update"])->name("acc
 
 Route::get("/account/orders", [OrderController::class, "getAllOrders"])->name("account/orders");
 
+Route::get("/account/orders", [OrderController::class, "getOrdersByUser"])->name("account.orders");
+Route::get("/admin/orders", [OrderController::class, "getAllOrders"])->name("admin.orders");
+Route::delete("/orders/{id}", [OrderController::class, "deleteOrder"])->name("account.orders.delete");
+
 Route::get("/shopping-cart", [ShoppingCartController::class, 'index'])->name("shopping-cart");
