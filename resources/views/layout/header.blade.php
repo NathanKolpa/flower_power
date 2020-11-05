@@ -14,7 +14,7 @@
                 <a class="nav-link" href="{{ route("products") }}">@lang("pages.search")</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">@lang("pages.contact")</a>
+                <a class="nav-link" href="{{ route("contact") }}">@lang("pages.contact")</a>
             </li>
 
 

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SignInController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\OrderController;
@@ -59,9 +60,8 @@ Route::get("/admin/orders/approve/{id}", [OrderController::class, "approveOrder"
 Route::delete("/orders/{id}", [OrderController::class, "deleteOrder"])->name("account.orders.delete");
 
 Route::get("/shopping-cart", [ShoppingCartController::class, 'index'])->name("shopping-cart");
-<<<<<<< HEAD
 Route::delete("/users/{userId}/shopping-cart/{productId}", [ShoppingCartController::class, 'deleteItemAction'])->name("shopping-cart.delete");
-=======
 
 Route::get('/product/detail/{id}', [ProductController::class, 'getProductById'])->name("product.detail");
->>>>>>> 44c17df4e055ee10a18e73b8f556ddb8aaf80b4e
+
+Route::get('/contact', [ContactController::class, 'index'])->name("contact");
