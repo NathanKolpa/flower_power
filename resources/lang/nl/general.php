@@ -21,5 +21,14 @@ return [
     "quantity" => "Aantal",
     "on_sale" => "In de uitverkoop",
     "change" => "Bewerken",
-    "create" => "Aanmaken"
+    "create" => "Aanmaken",
+
+    "user_id" => "Klant nummer",
+    "paid_price" => "Prijs betaald",
+    "is_delivered" => "Bezorgd",
+    "created_at"=> "Aangemaakt op",
+    "products"=> "Producten",
+    "user_data"=> "Klant gegevens",
+
+
 ];

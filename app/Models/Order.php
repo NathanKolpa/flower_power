@@ -16,6 +16,7 @@ class Order extends Model
         'userId',
         'pricePaid',
         'isDelivered',
+        'created_at',
     ];
 
     public function products()

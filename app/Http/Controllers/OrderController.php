@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public function getAllOrders()
+    public function getOrdersByUser()
     {
         $userId = Auth::user()->id;
 
@@ -24,5 +24,11 @@ class OrderController extends Controller
         $order->delete();
 
         return redirect()->route("account.orders");
+    }
+
+    public function getAllOrders()
+    {
+        $orders = Order::all();
+        return view("pages.admin.orders.orders", ["orders"=>$orders]);
     }
 }

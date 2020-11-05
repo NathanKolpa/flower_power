@@ -14,17 +14,21 @@
             <div class="col-8 mx-auto">
                 <form method="POST" action="{{ route("account.update")  }}">
                     @csrf
-                    <div class="row">
-                        <div class="col-md-4"><a>@lang("general.first_name")*</a></div>
-                        <div class="col-md-4"><a>@lang("general.middle_name")</a></div>
-                        <div class="col-md-4"><a>@lang("general.last_name")*</a></div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-4">
+                            <x-form-field :title="__('general.first_name')"
+                                          required="true" name="first_name" type="text" value="{{Auth::user()->first_name}}"></x-form-field>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <x-form-field :title="__('general.middle_name')"
+                                          required="false" name="middle_name" value="{{Auth::user()->middle_name}}" type="text"></x-form-field>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <x-form-field :title="__('general.last_name')"
+                                          required="true" name="last_name" value="{{Auth::user()->last_name}}" type="text"></x-form-field>
+                        </div>
                     </div>
-                    <div class="row" style="margin-bottom: 5%">
-                        <div class="col-md-4"><input type="text" value="{{Auth::user()->first_name}}" required class="form-control"/></div>
-                        <div class="col-md-4"><input type="text" value="{{Auth::user()->middle_name}}" class="form-control"/></div>
-                        <div class="col-md-4"><input type="text" value="{{Auth::user()->last_name}}" required class="form-control"/></div>
-                    </div>
-                    <input type="submit" class="btn btn-primary" value="@lang('general.change')"/>
+                    <button type="submit" class="btn btn-primary">@lang("general.edit")</button>
                 </form>
             </div>
         </div>

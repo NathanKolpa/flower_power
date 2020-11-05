@@ -10,4 +10,5 @@ return [
 
     "admin" => "Beheer",
     "admin_products" => "Producten beheeren",
+    "admin_orders" => "Orders beheeren"
 ];
