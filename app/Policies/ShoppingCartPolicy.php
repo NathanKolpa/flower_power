@@ -23,18 +23,6 @@ class ShoppingCartPolicy
     }
 
     /**
-     * Determine whether the user can create models.
-     *
-     * @param \App\Models\User $user
-     * @param ShoppingCartProduct $shoppingCartProduct
-     * @return mixed
-     */
-    public function create(User $user, ShoppingCartProduct $shoppingCartProduct)
-    {
-        return $user->id == $shoppingCartProduct->user_id;
-    }
-
-    /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user

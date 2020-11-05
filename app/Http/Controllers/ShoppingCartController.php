@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ShoppingCartProduct;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ShoppingCartController extends Controller
 {
@@ -17,6 +18,21 @@ class ShoppingCartController extends Controller
             'products' => $products,
             'user' => $user
         ]);
+    }
+
+    public function createItemAction($productId, \Illuminate\Http\Request $request)
+    {
+        // dit is beun en het boeit me niet
+        $user = Auth::user();
+
+        DB::table('shopping_cart_products')
+            ->insertOrIgnore([
+                'user_id' => $user->id,
+                'product_id' => $productId,
+                'product_count' => $request->all()['product_count']
+            ]);
+
+        return redirect()->route("shopping-cart");
     }
 
     public function deleteItemAction($userId, $productId)
