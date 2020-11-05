@@ -20,5 +20,6 @@ return [
     "price" => "Prijs",
     "quantity" => "Aantal",
     "on_sale" => "In de uitverkoop",
-    "change" => "Bewerken"
+    "change" => "Bewerken",
+    "create" => "Aanmaken"
 ];

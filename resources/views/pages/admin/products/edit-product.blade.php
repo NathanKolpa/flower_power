@@ -10,9 +10,9 @@
                 @include('pages.admin.products.product-form')
 
                 @can('update', $product)
-                    <input type="submit" class="btn btn-primary">
+                    <input type="submit" name="_method" value="put" class="btn btn-primary">
                 @endcan
-                
+
                 @can('delete', $product)
                     <input type="submit" name="_method" value="delete" class="btn btn-danger">
                 @endcan

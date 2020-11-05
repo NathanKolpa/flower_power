@@ -32,6 +32,12 @@ class AdminProductsController extends Controller
         ]);
     }
 
+    public function createIndex()
+    {
+        return view("pages.admin.products.create-product", [
+        ]);
+    }
+
     public function deleteAction($id)
     {
         $product = Product::find($id);
@@ -42,33 +48,39 @@ class AdminProductsController extends Controller
         return redirect()->route('admin.products');
     }
 
+    public function createAction(Request $request)
+    {
+        $this->authorize('create', Product::class);
+
+        $validator = $this->validateRequest($request);
+
+        if ($validator->fails()) {
+
+            return redirect()
+                ->route("admin.products.create")
+                ->withErrors($validator->getMessageBag()->get('*'));
+        }
+
+        $validatedBody = $validator->validated();
+
+        $product = new Product();
+        $product->name = $validatedBody['name'];
+        $product->price = $validatedBody['price'];
+        $product->description = $validatedBody['description'];
+        $product->quantity = $validatedBody['quantity'];
+        $product->on_sale = $request->post('onSale') != null ? 1 : 0;
+        $product->picture = '';
+        $product->save();
+
+        return redirect()->route('admin.products.edit', [$product->id]);
+    }
+
     public function editAction($id, Request $request)
     {
         $product = Product::find($id);
         $this->authorize('update', $product);
 
-        $messages = [
-            "required" => __('errors.required'),
-            "min" => __("errors.min"),
-            "max" => __("errors.max"),
-            "numeric" => __("errors.numeric"),
-            "integer" => __("errors.integer"),
-        ];
-
-        $attributes = [
-            "name" => __('general.name'),
-            "description" => __('general.description'),
-            "price" => __('general.price'),
-            "quantity" => __('general.quantity'),
-            'onSale' => __('general.on_sale'),
-        ];
-
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|min:1|max:64',
-            'description' => 'max:256',
-            'price' => 'required|numeric',
-            'quantity' => 'required|integer',
-        ], $messages, $attributes);
+        $validator = $this->validateRequest($request);
 
         if ($validator->fails()) {
 
@@ -88,6 +100,32 @@ class AdminProductsController extends Controller
         $product->save();
 
         return redirect()->route('admin.products.edit', [$product->id]);
+    }
+
+    private function validateRequest(Request $request): \Illuminate\Contracts\Validation\Validator
+    {
+        $messages = [
+            "required" => __('errors.required'),
+            "min" => __("errors.min"),
+            "max" => __("errors.max"),
+            "numeric" => __("errors.numeric"),
+            "integer" => __("errors.integer"),
+        ];
+
+        $attributes = [
+            "name" => __('general.name'),
+            "description" => __('general.description'),
+            "price" => __('general.price'),
+            "quantity" => __('general.quantity'),
+            'onSale' => __('general.on_sale'),
+        ];
+
+        return Validator::make($request->all(), [
+            'name' => 'required|min:1|max:64',
+            'description' => 'max:256',
+            'price' => 'required|numeric',
+            'quantity' => 'required|integer',
+        ], $messages, $attributes);
     }
 }
 

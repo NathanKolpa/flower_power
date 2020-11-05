@@ -4,6 +4,11 @@
 @section("content")
     <div class="row">
         <div class="col-12">
+
+            @can(['create'], \App\Models\Product::class)
+                <a class="btn btn-primary" href="{{ route("admin.products.create") }}">@lang("general.create")</a>
+            @endcan
+
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
