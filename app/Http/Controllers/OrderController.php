@@ -13,7 +13,7 @@ class OrderController extends Controller
     {
         $userId = Auth::user()->id;
 
-        $orders = Order::with("products")->where("user_id", "=", $userId)->get();
+        $orders = Order::with(["products", "user"])->where("user_id", "=", $userId)->get();
         return view("pages.orders", ["orders" => $orders]);
     }
 
@@ -28,7 +28,16 @@ class OrderController extends Controller
 
     public function getAllOrders()
     {
-        $orders = Order::all();
+        $orders = Order::with(["products", "user", "address"])->get();
         return view("pages.admin.orders.orders", ["orders"=>$orders]);
+    }
+
+    public function approveOrder($id)
+    {
+        $order = Order::find($id);
+        $order->is_delivered = true;
+
+        $order->save();
+        return redirect()->route('admin.orders');
     }
 }

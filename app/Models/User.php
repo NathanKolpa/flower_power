@@ -53,7 +53,8 @@ class User extends Authenticatable
             ->withPivot("product_count");
     }
 
-    public function getShoppingCartTotalAttribute() {
+    public function getShoppingCartTotalAttribute()
+    {
         $totalPrice = 0;
 
         foreach ($this->shoppingCartProducts as $product) {
@@ -61,5 +62,10 @@ class User extends Authenticatable
         }
 
         return $totalPrice;
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany('App\Models\Address');
     }
 }

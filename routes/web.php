@@ -51,11 +51,17 @@ Route::post("/products", [AdminProductsController::class, "createAction"])->name
 Route::get("/account", [SettingsController::class, "index"])->name("account");
 Route::post("/account/update", [SettingsController::class, "update"])->name("account.update");
 
-Route::get("/account/orders", [OrderController::class, "getAllOrders"])->name("account/orders");
+Route::get("/account/orders", [OrderController::class, "getAllOrders"])->name("account.orders");
 
 Route::get("/account/orders", [OrderController::class, "getOrdersByUser"])->name("account.orders");
 Route::get("/admin/orders", [OrderController::class, "getAllOrders"])->name("admin.orders");
+Route::get("/admin/orders/approve/{id}", [OrderController::class, "approveOrder"])->name("admin.order.approve");
 Route::delete("/orders/{id}", [OrderController::class, "deleteOrder"])->name("account.orders.delete");
 
 Route::get("/shopping-cart", [ShoppingCartController::class, 'index'])->name("shopping-cart");
+<<<<<<< HEAD
 Route::delete("/users/{userId}/shopping-cart/{productId}", [ShoppingCartController::class, 'deleteItemAction'])->name("shopping-cart.delete");
+=======
+
+Route::get('/product/detail/{id}', [ProductController::class, 'getProductById'])->name("product.detail");
+>>>>>>> 44c17df4e055ee10a18e73b8f556ddb8aaf80b4e
