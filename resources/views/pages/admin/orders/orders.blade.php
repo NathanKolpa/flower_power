@@ -22,13 +22,7 @@
                         <th scope="row">{{ $order->id }}</th>
                         <td>{{ $order->user_id }}</td>
                         <td>
-                            <table>
-                                @foreach($order->products as $product)
-                                    <tr>
-                                        <td style="border: none">{{$product->name}}</td>
-                                    </tr>
-                                @endforeach
-                            </table>
+                            {{$order->user->first_name}}
                         </td>
                         <td>€ {{ $order->price_paid/100 }}</td>
                         <td>

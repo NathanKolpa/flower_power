@@ -13,7 +13,7 @@ class OrderController extends Controller
     {
         $userId = Auth::user()->id;
 
-        $orders = Order::with("products")->where("user_id", "=", $userId)->get();
+        $orders = Order::with(["products", "user"])->where("user_id", "=", $userId)->get();
         return view("pages.orders", ["orders" => $orders]);
     }
 
