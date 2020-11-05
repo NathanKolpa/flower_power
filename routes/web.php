@@ -47,5 +47,5 @@ Route::delete("/products/{id}", [AdminProductsController::class, "deleteAction"]
 Route::get("/account", [SettingsController::class, "index"])->name("account");
 Route::post("/account/update", [SettingsController::class, "update"])->name("account.update");
 
-Route::get("/account/orders", [OrderController::class, "getAllOrders"])->name("account/orders");
-Route::delete("/account/orders/delete/{id}", [\App\Models\Order::class, "deleteOrder"])->name("account/orders/delete/{id}");
+Route::get("/account/orders", [OrderController::class, "getAllOrders"])->name("account.orders");
+Route::delete("/orders/{id}", [OrderController::class, "deleteOrder"])->name("account.orders.delete");

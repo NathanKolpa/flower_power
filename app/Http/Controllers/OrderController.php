@@ -7,7 +7,7 @@ use App\Models\Order;
 use App\Models\OrderedProducts;
 use Illuminate\Support\Facades\Auth;
 
-class OrderController
+class OrderController extends Controller
 {
     public function getAllOrders()
     {
@@ -19,7 +19,10 @@ class OrderController
 
     public function deleteOrder($id)
     {
-        $order = new Order();
+        $order = Order::find($id);
+        $this->authorize('delete', $order);
         $order->delete();
+
+        return redirect()->route("account.orders");
     }
 }
