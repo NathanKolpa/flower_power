@@ -41,7 +41,7 @@
                     <h5 class="card-title">{{$saleProduct->name}}</h5>
                     <p class="card-text">{{$saleProduct->description}}</p>
                     <p class="card-text">{{$saleProduct->price}}</p>
-                    <a href="#" class="btn btn-primary">Meer informatie</a>
+                    <a href="{{ route("product.detail",[$saleProduct->id]) }}" class="btn btn-primary">Meer informatie</a>
                 </div>
             </div>
         @endforeach

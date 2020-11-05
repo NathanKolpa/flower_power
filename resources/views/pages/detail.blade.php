@@ -16,7 +16,11 @@
                 <a>{{$product->description}}</a>
             </div>
             <div class="row">
-                <a class="btn btn-primary">@lang("general.addToCard")</a>
+                <form method="post" action="{{ route('shopping-cart.create', $product->id) }}">
+                    @csrf
+                    <input type="number" name="product_count" required value="1">
+                    <button class="btn btn-primary">@lang("general.addToCard")</button>
+                </form>
             </div>
         </div>
     </div>

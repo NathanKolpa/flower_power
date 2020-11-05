@@ -65,3 +65,5 @@ Route::delete("/users/{userId}/shopping-cart/{productId}", [ShoppingCartControll
 Route::get('/product/detail/{id}', [ProductController::class, 'getProductById'])->name("product.detail");
 
 Route::get('/contact', [ContactController::class, 'index'])->name("contact");
+Route::post("/shopping-cart/{productId}", [ShoppingCartController::class, 'createItemAction'])->name("shopping-cart.create");
+

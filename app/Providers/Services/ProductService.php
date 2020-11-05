@@ -17,7 +17,7 @@ class ProductService
 
     public function getSale()
     {
-        $products = Product::all()->where("onSale", "=", true);;
+        $products = Product::all()->where("on_sale", "=", true);;
 
         return $products;
     }
