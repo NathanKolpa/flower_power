@@ -8,6 +8,8 @@
             <nav class="nav flex-column">
                 <a class="nav-link" style="border-bottom: 1px solid lightgray" href="{{ route("account") }}">Profile</a>
                 <a class="nav-link" style="border-bottom: 1px solid lightgray" href="{{ route("account.orders") }}">Bestellingen</a>
+                <a class="nav-link" style="border-bottom: 1px solid lightgray" href="{{ route("account.address") }}">Adres</a>
+
             </nav>
         </div>
         <div class="col-md-10">

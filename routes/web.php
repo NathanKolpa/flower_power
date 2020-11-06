@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SignInController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -68,3 +69,4 @@ Route::get('/product/detail/{id}', [ProductController::class, 'getProductById'])
 Route::get('/contact', [ContactController::class, 'index'])->name("contact");
 Route::post("/shopping-cart/{productId}", [ShoppingCartController::class, 'createItemAction'])->name("shopping-cart.create");
 
+Route::get("/account/address", [AddressController::class, "index"])->name("account.address");
