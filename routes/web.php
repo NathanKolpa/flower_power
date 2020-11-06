@@ -58,6 +58,7 @@ Route::get("/account/orders", [OrderController::class, "getOrdersByUser"])->name
 Route::get("/admin/orders", [OrderController::class, "getAllOrders"])->name("admin.orders");
 Route::get("/admin/orders/approve/{id}", [OrderController::class, "approveOrder"])->name("admin.order.approve");
 Route::delete("/orders/{id}", [OrderController::class, "deleteOrder"])->name("account.orders.delete");
+Route::post("/orders", [OrderController::class, "createOrder"])->name("account.orders.create");
 
 Route::get("/shopping-cart", [ShoppingCartController::class, 'index'])->name("shopping-cart");
 Route::delete("/users/{userId}/shopping-cart/{productId}", [ShoppingCartController::class, 'deleteItemAction'])->name("shopping-cart.delete");

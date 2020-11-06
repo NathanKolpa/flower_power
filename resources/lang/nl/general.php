@@ -4,6 +4,7 @@ return [
     "first_name" => "Voornaam",
     "last_name" => "Achternaam",
     "middle_name" => "Tussenvoegsel",
+    "address" => "Address",
 
     "password" => "Wachtwoord",
     "email" => "Email",
@@ -31,6 +32,10 @@ return [
     "products"=> "Producten",
     "user_data"=> "Klant gegevens",
     "approve"=> "Versturen",
+    "total" => "Totaal",
+    "takeaway" => "Ophaalen",
+    "takeaway_point" => "Ophaalpunt",
+    "deliver" => "Bezorgen",
 
     "addToCard" => "Toevoegen aan winkelwagen"
 

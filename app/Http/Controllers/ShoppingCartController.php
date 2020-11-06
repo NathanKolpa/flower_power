@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Product;
 use App\Models\ShoppingCartProduct;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -11,7 +13,7 @@ class ShoppingCartController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
+        $user = User::with("addresses")->find(Auth::user()->id);
         $products = $user->shoppingCartProducts()->get();
 
         return view("pages.shopping-cart", [
@@ -24,12 +26,13 @@ class ShoppingCartController extends Controller
     {
         // dit is beun en het boeit me niet
         $user = Auth::user();
+        $product = Product::find($productId);
 
         DB::table('shopping_cart_products')
             ->insertOrIgnore([
                 'user_id' => $user->id,
-                'product_id' => $productId,
-                'product_count' => $request->all()['product_count']
+                'product_id' => $product->id,
+                'product_count' => min($product->quantity, $request->all()['product_count'])
             ]);
 
         return redirect()->route("shopping-cart");
