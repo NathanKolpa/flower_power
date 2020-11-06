@@ -11,6 +11,7 @@
             </nav>
         </div>
         <div class="col-md-10">
+            <a class="btn btn-primary" href="{{ route("account.create.address") }}">@lang("general.new")</a>
             <div class="row">
                 @foreach($addresses as $address)
                     <div class="card" style="width: 18rem;">

@@ -70,3 +70,5 @@ Route::get('/contact', [ContactController::class, 'index'])->name("contact");
 Route::post("/shopping-cart/{productId}", [ShoppingCartController::class, 'createItemAction'])->name("shopping-cart.create");
 
 Route::get("/account/address", [AddressController::class, "index"])->name("account.address");
+Route::get("/account/address/create", [AddressController::class, "createView"])->name("account.create.address");
+Route::post("/account/address/create", [AddressController::class, "saveAddress"])->name("account.create.address");

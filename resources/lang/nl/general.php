@@ -37,7 +37,14 @@ return [
     "takeaway_point" => "Ophaalpunt",
     "deliver" => "Bezorgen",
 
-    "addToCard" => "Toevoegen aan winkelwagen"
+    "addToCard" => "Toevoegen aan winkelwagen",
+
+    "new" => "Nieuw",
+
+    "streetName" => "straatnaam",
+    "houseNumber" => "huisnummer",
+    "postalCode" => "postcode",
+
 
 
 ];
